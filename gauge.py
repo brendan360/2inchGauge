@@ -2,6 +2,7 @@ import pygame as py
 import pygame.gfxdraw
 import math
 import serial
+import time
 
 # import pygame module in this program
 import pygame

@@ -9,6 +9,7 @@ import requests
 import struct
 import os
 import socket
+from hyperpixel2r import Touch
 
 
  
@@ -31,7 +32,12 @@ black = (0,0,0)
 
 Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
 
-
+###
+#
+#touch setup
+#
+###
+touch = Touch(bus=11, i2c_addr=0x15, interrupt_pin=27):
 
 
 ###
@@ -92,8 +98,9 @@ def functGETIPADDRESS():
         s.close()
     return IP
 
-
-
+@touch.on_touch
+def handle_touch(touch_id, x, y, state):
+    print(touch_id, x, y, state)
 
 
 

@@ -20,8 +20,8 @@ blue = (0, 0, 128)
 
 def loading():
     imp = pygame.image.load("logo.jpg").convert() 
-    logo_rect = imp.get_rect(center = imp.get_rect().center)
-    display_surface.blit(imp, 240,240)    
+    logo.center = (X // 2, Y // 2)
+    display_surface.blit(imp, logo)    
     pygame.display.update()
     time.sleep(5)
 

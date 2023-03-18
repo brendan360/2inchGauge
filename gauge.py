@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
     pygame.init()
     #width, height = (640, 480)
-    width = 640
+    width = 480
     height = 480
     background = py.image.load("gaugebg.png") ## Load the image file
     background = py.transform.scale(background,(630,520)) ## Make it the same size as the screen
@@ -85,7 +85,7 @@ if __name__ == '__main__':
         FONT=FONT,
         x_cord=width / 2,
         y_cord=height / 2,
-        thickness=50,
+        thickness=70,
         radius=200,
         circle_colour=circle_c,
         glow=False)

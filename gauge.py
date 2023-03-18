@@ -67,46 +67,6 @@ def functFIRSTBOOT():
     
 def functREINITIALISE():
     firstBoot()
-
- 
-def funtREBOOTPI():
-    drawimage=setupDisplay()
-    image=drawimage[0]
-    draw=drawimage[1]
-    draw.text((30,85),"REBOOT", font=font, fill=255)
-    draw.text((20,150),"Press button to cancel",font=font2, fill="WHITE")
-    tempcount=0
-    draw.text((60,30),"..........", font=font, fill="WHITE")
-    im_r=image.rotate(rotation)
-    disp.ShowImage(im_r)
-    button_held=False
-    while tempcount <=10:
-        if not button.value and not button_held:
-            button_held = True
-        if button.value and button_held:
-            button_held = False
-            menuloop(4,configmenu)
-        diedots="."*tempcount
-        draw.text((60,30),diedots, font=font, fill=255)
-        im_r=image.rotate(rotation)
-        disp.ShowImage(im_r)
-        time.sleep(1)
-        tempcount+=1
-
-    os.system('sudo reboot')
- 
-def functUPDATE():
-    highlightDisplay("Updating","Car Guage")
-    
-    git.Repo(address).remotes.origin.fetch()
-    diff = str(git.Repo(address).git.diff('origin/master')).splitlines()
-    if len(diff) != 0:
-        highlightDisplay("Processing","Update")
-        git.Repo(address).remote().pull()
-        reboot_pi()
-    else:
-        highlightDisplay("No Update","Update")
-        time.sleep(3)
   
 def functGETIPADDRESS():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

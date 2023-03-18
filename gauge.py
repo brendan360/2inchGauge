@@ -67,7 +67,7 @@ def functFIRSTBOOT():
     logo_rect = imp.get_rect(center = display_surface.get_rect().center)
     display_surface.blit(imp, logo_rect)    
     pygame.display.update()
-    time.sleep(4)
+    time.sleep(2)
     functINITCOMMS()
 
 def functINITCOMMS():
@@ -79,11 +79,102 @@ def functCONNECTBT():
     print("starting BT")
 
 def functCONNECTOBD():
-    print("starting OBD")
+    global statusState
+    print("Connecting OBD")
+    i=0
+    while i<5:
+        try:
+        #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
+        #    statusState=connection.status()
+            if statusState == "Car Connected":
+                print("     OBD conected")
+                bootState['obd']=(i,"win",1)
+                functHIGHLIGHTBOOTDISPLAY()
+                connection.close()
+                return
+            else:
+                i=i+1
+                time.sleep(1)
+                bootState['obd']=(i,"fail",0)
+                functHIGHLIGHTBOOTDISPLAY()
+                continue
+        except:
+            i=i+1
+            bootState['obd']=(i,"fail",0)
+            functHIGHLIGHTBOOTDISPLAY()   
+    
+    
+    # if bootState['bt'][1]=="fail":
+       # bootState['obd']=(5,"fail",0) 
+       # return
+    
+    # if statusState == "Car Connected": 
+        # return
+        
+    # else:
+        # statusState=""
+        # while i<5:
+            # try:
+                # connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
+                # statusState=connection.status()
+                # if statusState == "Car Connected":
+                    # print("     OBD conected")
+                    # bootState['obd']=(i,"win",1)
+                    # functHIGHLIGHTBOOTDISPLAY()
+                    # connection.close()
+                    # return
+                # else:
+                    # i=i+1
+                    # time.sleep(1)
+                    # bootState['obd']=(i,"fail",0)
+                    # functHIGHLIGHTBOOTDISPLAY()
+                    # continue
+            # except:
+                # i=i+1
+                # bootState['obd']=(i,"fail",0)
+                # functHIGHLIGHTBOOTDISPLAY()
    
         
 
 ### Printing functions
+def functHIGHLIGHTBOOTDISPLAY(text1,text2):
+    display_surface.fill(black)
+    
+    
+    
+    
+    
+    if bootState['obd'][1]=="fail":
+        faildot="."*bootState['obd'][0]
+        text = Loadingfont.render("OBD", True, white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -80)
+        display_surface.blit(text, textRect)
+        text = Loadingfont.render(".....", True,white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -20)
+        display_surface.blit(text, textRect)
+        text = Loadingfont.render(faildot, True, red, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -20)
+        display_surface.blit(text, textRect)
+        if bootState['obd'][0]==5:
+            text = Loadingfont.render("OBD", True, red, black)
+            textRect = text.get_rect()
+            textRect.center = (X // 2, Y // 2 -80)
+            display_surface.blit(text, textRect)
+            pygame.display.update()
+    else:
+        faildot="."*bootState['obd'][0]
+        text = Loadingfont.render("OBD", True, green, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -80)
+        display_surface.blit(text, textRect)
+        text = Loadingfont.render(faildot, True, green, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -20)
+        display_surface.blit(text, textRect)
+        pygame.display.update()
 
 def functHIGHLIGHTDISPLAY(text1,text2):
     display_surface.fill(black)
@@ -145,3 +236,4 @@ try:
 
 except:
     functHIGHLIGHTDISPLAY("FAILED", "to START")
+    

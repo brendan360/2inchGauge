@@ -71,7 +71,7 @@ def functFIRSTBOOT():
     functINITCOMMS()
 
 def functINITCOMMS():
-    functHIGHLIGHTDISPLAY("BOOTING",)
+    functHIGHLIGHTDISPLAY("BOOTING","")
     functCONNECTBT()
     functCONNECTOBD()
   

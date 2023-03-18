@@ -86,6 +86,8 @@ def functCONNECTOBD():
         time.sleep(2)
         try:
             threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
+            print("trying thread")
+            statusState="na"
         #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
         #    statusState=connection.status()
             if statusState == "Car Connected":
@@ -141,7 +143,7 @@ def functCONNECTOBD():
 ### Printing functions
 def functHIGHLIGHTBOOTDISPLAY():
     display_surface.fill(black)
-    
+    pygame.display.update()
     
     
     

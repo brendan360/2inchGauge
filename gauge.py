@@ -5,7 +5,6 @@ import serial
 from random import randint
 
 class Gauge:
-
     def __init__(self, screen, FONT, x_cord, y_cord, thickness, radius, circle_colour, glow=True):
         self.screen = screen
         self.Font = FONT
@@ -62,6 +61,37 @@ class Gauge:
                 pygame.gfxdraw.arc(screen, int(lx), int(ly), (self.thickness//2)+i , fill_angle -225-10, fill_angle - 225-180-10, ac)
 
 
+class Welcome:
+    def __init__(self, screen, FONT, x_cord, y_cord, thickness, radius, circle_colour, glow=True):
+        self.screen = screen
+        self.Font = FONT
+        self.x_cord = x_cord
+        self.y_cord = y_cord
+        self.thickness = thickness
+        self.radius = radius
+        self.circle_colour = circle_colour
+        self.glow = glow
+
+    def draw(self, Text):
+        pertext = self.Font.render(str(Text), True)
+        pertext_rect = pertext.get_rect(center=(int(self.x_cord), int(self.y_cord)))
+        self.screen.blit(pertext, pertext_rect)
+        if self.glow:
+            for i in range(0,15):
+                ac [3] = int(150 - i*10)
+                pygame.gfxdraw.arc(screen, int(self.x_cord), int(self.y_cord), self.radius + i, -225, fill_angle - 225-8, ac)
+            for i in range(0,15):
+                ac [3] = int(150 - i*10)
+                pygame.gfxdraw.arc(screen, int(self.x_cord), int(self.y_cord), self.radius -self.thickness - i, -225, fill_angle - 225-8, ac)
+            angle_r = math.radians(fill_angle-225-8)
+            lx,ly = int((self.radius-self.thickness/2)*math.cos(angle_r)), int( (self.radius-self.thickness/2)*math.sin(angle_r))
+            ac[3] = 255
+            lx = int(lx+self.x_cord)
+            ly = int(ly + self.y_cord)
+            pygame.draw.circle(self.screen,ac,(lx,ly),int(self.thickness/2),0)
+            for i in range(0,10):
+                ac [3] = int(150 - i*15)
+                pygame.gfxdraw.arc(screen, int(lx), int(ly), (self.thickness//2)+i , fill_angle -225-10, fill_angle - 225-180-10, ac)
 
 
 if __name__ == '__main__':
@@ -80,6 +110,20 @@ if __name__ == '__main__':
     pygame.display.set_caption('Wahaj Gauge Pygame')
     fps = 6
     FONT = pygame.font.SysFont('ARIAL', 75)
+    welcome_gauge = Welcome(
+        screen=screen,
+        FONT=FONT,
+        x_cord=width / 2,
+        y_cord=height / 2,
+        thickness=70,
+        radius=200,
+        circle_colour=circle_c,
+        glow=False)   
+    welcome_gauge.draw(text="Loading")
+    pygame.display.update() 
+    
+    
+    
     my_gauge = Gauge(
         screen=screen,
         FONT=FONT,
@@ -92,10 +136,14 @@ if __name__ == '__main__':
     percentage = 0
     ifdelay = 0
     while True:
-        # FOR SHOWING CHANGE IN GAUGE
+      # FOR SHOWING CHANGE IN GAUGE
      # rangauge = ser.readline()
      # percentage = int(rangauge)
       screen.blit(background,(0,0)) ## Blit the background onto the screen first
+      
+      
+      
+      
       percentage=randint(77, 84)
            # percentage = 0
          #       screen.fill(bg_c)

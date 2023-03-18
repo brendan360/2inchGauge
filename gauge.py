@@ -52,7 +52,6 @@ textRect.center = (X // 2, Y // 2)
 def loading():
     display_surface.fill(white)  
     display_surface.blit(text, textRect)
-    display_surface.blit(imp, (0, 0))
     time.sleep(5)
     imp = pygame.image.load("./logo.jpg").convert() 
     display_surface.blit(imp, (0, 0))    

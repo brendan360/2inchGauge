@@ -3,13 +3,9 @@ import pygame.gfxdraw
 import math
 import serial
 import time
-
-# import pygame module in this program
 import pygame
  
-# activate the pygame library
-# initiate pygame and give permission
-# to use pygame's functionality.
+ 
 pygame.init()
 X = 480
 Y = 480
@@ -24,7 +20,7 @@ blue = (0, 0, 128)
 
 
 def loading():
-    imp = pygame.image.load("./logo.jpg").convert() 
+    imp = pygame.image.load("logo.jpg").convert() 
     display_surface.blit(imp, (0, 0))    
     pygame.display.flip()
 

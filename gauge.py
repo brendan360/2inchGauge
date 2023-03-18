@@ -64,7 +64,7 @@ def functFIRSTBOOT():
 def functINITCOMMS():
     print("starting comms")
     display_surface.fill(black)
-    text = font.render("BOOTING", True, black, red)
+    text = Loadingfont.render("BOOTING", True, black, red)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 - 70)
     display_surface.blit(text, textRect)

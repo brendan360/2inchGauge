@@ -57,6 +57,8 @@ bootState={"Bluetooth":[0,"fail",0],
 #FUNCTIONS
 #
 ####
+
+### booting functions
 def functFIRSTBOOT():
 
     display_surface.fill(white)
@@ -85,8 +87,24 @@ def functCONNECTBT():
 def functCONNECTOBD():
     print("starting OBD")
    
+        
+
+### Printing functions
+def functHIGHLIGHTDISPLAY(text1,text2)
+    display_surface.fill(black)
+    text = Loadingfont.render(text1, True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 -80)
+    display_surface.blit(text, textRect)
+    text = Loadingfont.render(text2, True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 +10 )
+    display_surface.blit(text, textRect)
+    pygame.display.update()
+    time.sleep(10)
     
-    
+
+### Helper functions
 def functREINITIALISE():
     firstBoot()
   
@@ -102,26 +120,16 @@ def functGETIPADDRESS():
     return IP
 
 
-
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
 
 
+
+### Menu functions
 def funtMENULOOP (item,menu):
+    print("asdf")
    
-def functHIGHLIGHTDISPLAY(text1,text2)
-    display_surface.fill(black)
-    text = Loadingfont.render(text1, True, red, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 -80)
-    display_surface.blit(text, textRect)
-    text = Loadingfont.render(text2, True, red, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +10 )
-    display_surface.blit(text, textRect)
-    pygame.display.update()
-    time.sleep(10)
 
 
 

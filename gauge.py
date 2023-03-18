@@ -23,6 +23,7 @@ def loading():
     display_surface.blit(imp, (0, 0))    
     pygame.display.flip()
     pygame.display.update()
+    time.sleep(5)
 
 
 

@@ -22,6 +22,7 @@ def loading():
     imp = pygame.image.load("logo.jpg").convert() 
     display_surface.blit(imp, (0, 0))    
     pygame.display.flip()
+    pygame.display.update()
 
 
 
@@ -54,7 +55,9 @@ print("starting boot")
 textRect.center = (X // 2, Y // 2)
 display_surface.fill(white)
 display_surface.blit(text, textRect)
+pygame.display.update()
 time.sleep(5)
+
 
 print("should be loading jpg now")
 

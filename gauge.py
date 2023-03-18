@@ -4,8 +4,12 @@ import math
 import serial
 import time
 import pygame
- 
- 
+import RPi.GPIO as GPIO
+import requests
+import struct
+import os
+import git 
+
  
 ###
 #
@@ -33,7 +37,7 @@ Loadingfont = pygame.font.Font('freesansbold.ttf', 80)
 ###
 sea_level_pressure = 1010
 presURL = "https://api.manly.hydraulics.works/api.php?page=latest-readings&id=60284042&username=publicwww"
-
+address="/home/pi/gauge/"
 
 
 

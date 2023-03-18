@@ -46,17 +46,20 @@ def functFIRSTBOOT():
 
     display_surface.fill(white)
 
-    text = Loadingfont.render('Loading', True, red, white)
     imp = pygame.image.load(address+"logo.jpg").convert() 
     logo_rect = imp.get_rect(center = display_surface.get_rect().center)
     display_surface.blit(imp, logo_rect)    
     pygame.display.update()
     time.sleep(5)
+    newtext=functGETIPADDRESS()
+    text = Loadingfont.render(newtext, True, red, white)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect)
     pygame.display.update()
     functGETSEALEVEL()
+    
+    
     
 def functREINITIALISE():
     firstBoot()
@@ -123,7 +126,7 @@ def functGETSEALEVEL():
         print(cleanpressure)
     except:
         print("no internet using defeault sealevel")
-        cleanpressure=sea_level_pressure`   
+        cleanpressure=sea_level_pressure  
         
 
 

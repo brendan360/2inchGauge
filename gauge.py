@@ -80,14 +80,16 @@ def functCONNECTBT():
 
 def functCONNECTOBD():
     global statusState
+    statusState="na"
     print("Connecting OBD")
     i=0
     while i<5:
         time.sleep(2)
         try:
-            threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
             print("trying thread")
-            statusState="na"
+            threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
+            
+            
         #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
         #    statusState=connection.status()
             if statusState == "Car Connected":

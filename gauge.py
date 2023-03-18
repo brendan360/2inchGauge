@@ -68,6 +68,9 @@ def functFIRSTBOOT():
     display_surface.blit(imp, logo_rect)    
     pygame.display.update()
     time.sleep(2)
+                
+    display_surface.fill(black)         
+    pygame.display.update()
     functINITCOMMS()
 
 def functINITCOMMS():
@@ -146,7 +149,8 @@ def functCONNECTOBD():
 
 ### Printing functions
 def functHIGHLIGHTBOOTDISPLAY():
- 
+
+    
     
     
     if bootState['obd'][1]=="fail":

@@ -32,11 +32,11 @@ pygame.display.set_caption('Show Text')
 # 1st parameter is the font file
 # which is present in pygame.
 # 2nd parameter is size of the font
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('freesansbold.ttf', 64)
  
 # create a text surface object,
 # on which text is drawn on it.
-text = font.render('GeeksForGeeks', True, green, blue)
+text = font.render('Loading', True, green, blue)
  
 # create a rectangular object for the
 # text surface object
@@ -46,31 +46,19 @@ textRect = text.get_rect()
 textRect.center = (X // 2, Y // 2)
  
 # infinite loop
-while True:
- 
-    # completely fill the surface object
-    # with white color
-    display_surface.fill(white)
- 
-    # copying the text surface object
-    # to the display surface object
-    # at the center coordinate.
+
+
+
+def loading():
+    display_surface.fill(white)  
     display_surface.blit(text, textRect)
- 
-    # iterate over the list of Event objects
-    # that was returned by pygame.event.get() method.
-    for event in pygame.event.get():
- 
-        # if event object type is QUIT
-        # then quitting the pygame
-        # and program both.
-        if event.type == pygame.QUIT:
- 
-            # deactivates the pygame library
-            pygame.quit()
- 
-            # quit the program.
-            quit()
- 
-        # Draws the surface object to the screen.
-        pygame.display.update()
+    scrn.blit(imp, (0, 0))
+    time.sleep(5)
+    imp = pygame.image.load("./logo.jpg").convert() 
+    scrn.blit(imp, (0, 0))    
+    pygame.display.flip()
+
+
+
+
+loading();

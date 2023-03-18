@@ -90,7 +90,7 @@ def functCONNECTOBD():
         
 
 ### Printing functions
-def functHIGHLIGHTDISPLAY(text1,text2)
+def functHIGHLIGHTDISPLAY(text1,text2):
     display_surface.fill(black)
     text = Loadingfont.render(text1, True, red, black)
     textRect = text.get_rect()

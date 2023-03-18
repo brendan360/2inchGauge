@@ -71,7 +71,7 @@ def functFIRSTBOOT():
     functINITCOMMS()
 
 def functINITCOMMS():
-    functHIGHLIGHTDISPLAY("BOOTING","")
+#    functHIGHLIGHTDISPLAY("BOOTING","")
     functCONNECTBT()
     functCONNECTOBD()
   
@@ -137,7 +137,7 @@ def functCONNECTOBD():
         
 
 ### Printing functions
-def functHIGHLIGHTBOOTDISPLAY(text1,text2):
+def functHIGHLIGHTBOOTDISPLAY():
     display_surface.fill(black)
     
     

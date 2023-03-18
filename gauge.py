@@ -71,13 +71,7 @@ def functFIRSTBOOT():
     functINITCOMMS()
 
 def functINITCOMMS():
-    print("starting comms")
-    display_surface.fill(black)
-    text = Loadingfont.render("BOOTING", True, red, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 -100)
-    display_surface.blit(text, textRect)
-    pygame.display.update()
+    functHIGHLIGHTDISPLAY("BOOTING",)
     functCONNECTBT()
     functCONNECTOBD()
   
@@ -90,6 +84,7 @@ def functCONNECTOBD():
         
 
 ### Printing functions
+
 def functHIGHLIGHTDISPLAY(text1,text2):
     display_surface.fill(black)
     text = Loadingfont.render(text1, True, red, black)

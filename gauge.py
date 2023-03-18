@@ -20,7 +20,7 @@ blue = (0, 0, 128)
 
 
 
-def FirstBoot():
+def functFIRSTBOOT():
     font = pygame.font.Font('freesansbold.ttf', 64)
     text = font.render('Loading', True, green, white)
     imp = pygame.image.load("logo.jpg").convert() 
@@ -46,4 +46,4 @@ def FirstBoot():
 # Starting bit
 #
 ####
-firstBoot()
+functFIRSTBOOT()

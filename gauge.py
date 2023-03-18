@@ -27,8 +27,11 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
 red = (255,0,0)
+black = (0,0,0)
 
-Loadingfont = pygame.font.Font('freesansbold.ttf', 80)
+Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
+
+
 
 
 ###
@@ -36,11 +39,11 @@ Loadingfont = pygame.font.Font('freesansbold.ttf', 80)
 #GLOABL variables
 #
 ###
-sea_level_pressure = 1010
-presURL = "https://api.manly.hydraulics.works/api.php?page=latest-readings&id=60284042&username=publicwww"
 address="/home/pi/2inchGauge/"
 
-
+bootState={"Bluetooth":[0,"fail",0],
+           "obd":[0,"fail",0]
+           }
 
 ####
 #
@@ -50,20 +53,29 @@ address="/home/pi/2inchGauge/"
 def functFIRSTBOOT():
 
     display_surface.fill(white)
-
+    pygame.display.update()
     imp = pygame.image.load(address+"logo.jpg").convert() 
     logo_rect = imp.get_rect(center = display_surface.get_rect().center)
     display_surface.blit(imp, logo_rect)    
     pygame.display.update()
-    time.sleep(5)
-    newtext=functGETIPADDRESS()
-    text = Loadingfont.render(newtext, True, red, white)
+
+    functINITCOMMS()
+
+def functINITCOMMS():
+    print("starting comms")
+    display_surface.fill(black)
+    text = font.render("BOOTING", True, black, red)
     textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2)
+    textRect.center = (X // 2, Y // 2 - 70)
     display_surface.blit(text, textRect)
     pygame.display.update()
-    functGETSEALEVEL()
-    
+  
+def functCONNECTBT():
+    print("starting BT")
+
+def functCONNECTOBD():
+    print("starting OBD")
+   
     
     
 def functREINITIALISE():
@@ -80,19 +92,7 @@ def functGETIPADDRESS():
         s.close()
     return IP
 
-def functGETSEALEVEL():
-    try:
-        url=requests.get(presURL)
-        text = url.text
-        data= json.loads(text)
-        pressure=data['60284042']['value']
-        cleanpressure=str(pressure).replace("[","")
-        cleanpressure=cleanpressure.replace("]","")
-        print(cleanpressure)
-    except:
-        print("no internet using defeault sealevel")
-        cleanpressure=sea_level_pressure  
-        
+
 
 
 

@@ -88,7 +88,7 @@ def functCONNECTOBD():
         try:
             print("trying thread")
             threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
-            
+         
             
         #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
         #    statusState=connection.status()
@@ -99,12 +99,14 @@ def functCONNECTOBD():
                 connection.close()
                 return
             else:
+                print("failing after winning")
                 i=i+1
                 time.sleep(1)
                 bootState['obd']=(i,"fail",0)
                 functHIGHLIGHTBOOTDISPLAY()
                 continue
         except:
+            print("failed thread")
             i=i+1
             bootState['obd']=(i,"fail",0)
             functHIGHLIGHTBOOTDISPLAY()   

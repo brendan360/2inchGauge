@@ -37,7 +37,7 @@ Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
 #touch setup
 #
 ###
-touch = Touch(bus=11, i2c_addr=0x15, interrupt_pin=27):
+touch = Touch(bus=11, i2c_addr=0x15, interrupt_pin=27)
 
 
 ###

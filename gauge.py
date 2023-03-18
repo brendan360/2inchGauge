@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 import requests
 import struct
 import os
+import socket
 
 
  

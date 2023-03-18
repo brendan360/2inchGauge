@@ -146,10 +146,7 @@ def functCONNECTOBD():
 
 ### Printing functions
 def functHIGHLIGHTBOOTDISPLAY():
-    display_surface.fill(black)
-    pygame.display.update()
-    
-    
+ 
     
     
     if bootState['obd'][1]=="fail":

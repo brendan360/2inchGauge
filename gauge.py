@@ -119,7 +119,7 @@ if __name__ == '__main__':
         radius=200,
         circle_colour=circle_c,
         glow=False)   
-    welcome_gauge.draw("Loading")
+    welcome_gauge.draw(text="Loading")
     pygame.display.update() 
     
     

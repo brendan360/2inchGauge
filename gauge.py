@@ -58,7 +58,7 @@ def functFIRSTBOOT():
     logo_rect = imp.get_rect(center = display_surface.get_rect().center)
     display_surface.blit(imp, logo_rect)    
     pygame.display.update()
-
+    time.sleep(4)
     functINITCOMMS()
 
 def functINITCOMMS():
@@ -103,3 +103,4 @@ def functGETIPADDRESS():
 #
 ####
 functFIRSTBOOT()
+time.sleep(5)

@@ -77,6 +77,7 @@ def functINITCOMMS():
     display_surface.blit(text, textRect)
     pygame.display.update()
     functCONNECTBT()
+    functCONNECTOBD()
   
 def functCONNECTBT():
     print("starting BT")
@@ -105,32 +106,39 @@ def functGETIPADDRESS():
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
-    return(touch_id, x, y, state)
+
+
+def funtMENULOOP (item,menu):
+   
+def functHIGHLIGHTDISPLAY(text1,text2)
+    display_surface.fill(black)
+    text = Loadingfont.render(text1, True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 -80)
+    display_surface.blit(text, textRect)
+    text = Loadingfont.render(text2, True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 +10 )
+    display_surface.blit(text, textRect)
+    pygame.display.update()
+    time.sleep(10)
+
+
+
+
 
 
 
 ####
 #
-# Starting bit
+# Runtime
 #
 ####
 functFIRSTBOOT()
 
 try:
-    threading.Thread(target=menuloop, args=(0,topmenu)).start()
+    threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
 
 
 except:
-    display_surface.fill(black)
-    text = Loadingfont.render("FAILED", True, red, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 -80)
-    display_surface.blit(text, textRect)
-    text = Loadingfont.render("to Start", True, red, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +10 )
-    display_surface.blit(text, textRect)
-    pygame.display.update()
-    time.sleep(55)
-    if handle_touch(state) == True:
-        print("rebooting")
+    functHIGHLIGHTDISPLAY("FAILED", "to START")

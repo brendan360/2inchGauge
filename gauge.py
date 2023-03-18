@@ -10,6 +10,7 @@ import struct
 import os
 import socket
 from hyperpixel2r import Touch
+import threading
 
 
  
@@ -75,6 +76,7 @@ def functINITCOMMS():
     textRect.center = (X // 2, Y // 2 -100)
     display_surface.blit(text, textRect)
     pygame.display.update()
+    functCONNECTBT()
   
 def functCONNECTBT():
     print("starting BT")
@@ -112,4 +114,17 @@ def handle_touch(touch_id, x, y, state):
 #
 ####
 functFIRSTBOOT()
-time.sleep(5)
+try:
+    threading.Thread(target=menuloop, args=(0,topmenu)).start()
+
+except:
+    display_surface.fill(black)
+    text = Loadingfont.render("FAILED", True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 -100)
+    display_surface.blit(text, textRect)
+    text = Loadingfont.render("to Start", True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 )
+    display_surface.blit(text, textRect)
+    pygame.display.update()

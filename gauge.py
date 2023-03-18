@@ -83,7 +83,9 @@ def functCONNECTOBD():
     print("Connecting OBD")
     i=0
     while i<5:
+        time.sleep(2)
         try:
+            threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
         #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
         #    statusState=connection.status()
             if statusState == "Car Connected":
@@ -230,10 +232,10 @@ def funtMENULOOP (item,menu):
 ####
 functFIRSTBOOT()
 
-try:
-    threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
+#try:
+#    threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
 
 
-except:
-    functHIGHLIGHTDISPLAY("FAILED", "to START")
+#except:
+#    functHIGHLIGHTDISPLAY("FAILED", "to START")
     

@@ -174,7 +174,7 @@ def functCONNECTOBD():
                 # i=i+1
                 # bootState['obd']=(i,"fail",0)
                 # functHIGHLIGHTBOOTDISPLAY()
-    print(")
+    print("")
         
 
 ### Printing functions

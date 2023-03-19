@@ -36,6 +36,7 @@ font1 = pygame.font.Font('freesansbold.ttf', 30)
 font2 = pygame.font.Font('freesansbold.ttf', 50)
 font3 = pygame.font.Font('freesansbold.ttf', 60)
 font4 = pygame.font.Font('freesansbold.ttf', 70)
+font5 = pygame.font.Font('freesansbold.ttf', 80)
 
 ###
 #
@@ -269,6 +270,10 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     text = font4.render(postfix, True, white, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 +100)
+    display_surface.blit(text, textRect)
+    text = font5.render("12.1", True, white, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect)
     pygame.display.update()
     time.sleep(5)

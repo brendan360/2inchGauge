@@ -32,6 +32,7 @@ red = (255,0,0)
 black = (0,0,0)
 
 Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
+font1 = pygame.font.Font('freesansbold.ttf', 40)
 
 ###
 #
@@ -144,14 +145,14 @@ def functCONNECTOBD():
             functHIGHLIGHTBOOTDISPLAY()   
     
     
-    # if bootState['bt'][1]=="fail":
+     # if bootState['bt'][1]=="fail":
        # bootState['obd']=(5,"fail",0) 
        # return
     
-    # if statusState == "Car Connected": 
+     # if statusState == "Car Connected": 
         # return
         
-    # else:
+     # else:
         # statusState=""
         # while i<5:
             # try:
@@ -173,7 +174,7 @@ def functCONNECTOBD():
                 # i=i+1
                 # bootState['obd']=(i,"fail",0)
                 # functHIGHLIGHTBOOTDISPLAY()
-   
+    print(")
         
 
 ### Printing functions
@@ -256,6 +257,16 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     display_surface.blit(text, textRect)
     pygame.display.update()
     time.sleep(5)
+    
+def functDISPLAYGAUGE(pid):
+    display_surface.fill(black)
+    text = font.render(pid, True, red, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 +150)
+    
+    
+    
+
 
 ### Helper functions
 def functREINITIALISE():
@@ -282,6 +293,7 @@ def handle_touch(touch_id, x, y, state):
 ### Menu functions
 def funtMENULOOP (item,menu):
     print("asdf")
+    
    
 
 
@@ -296,6 +308,8 @@ def funtMENULOOP (item,menu):
 #
 ####
 functFIRSTBOOT()
+functDISPLAYGAUGE("o2 Pressure")
+
 
 #try:
 #    threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()

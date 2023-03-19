@@ -314,8 +314,8 @@ def funtMENULOOP (item,menu):
 # Runtime
 #
 ####
-functFIRSTBOOT()
-functDISPLAYGAUGE("Boost",10,100,90)
+#functFIRSTBOOT()
+functDISPLAYGAUGE("Boost",10,100,90,"psi")
 
 
 #try:

@@ -158,13 +158,11 @@ def functHIGHLIGHTBOOTDISPLAY():
         textRect = text.get_rect()
         textRect.center = (X // 2, Y // 2 -80)
         display_surface.blit(text, textRect)
-        text = Loadingfont.render(".....", True,white, black)
-        textRect = text.get_rect()
-        textRect.center = (180, Y // 2 -20)
+
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, red, black)
         textRect = text.get_rect()
-        textRect.center = (180, Y // 2 -20)
+        textRect.center = (X // 2, Y // 2 -20)
         display_surface.blit(text, textRect)
         pygame.display.update()
         if bootState['obd'][0]==5:
@@ -182,7 +180,7 @@ def functHIGHLIGHTBOOTDISPLAY():
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, green, black)
         textRect = text.get_rect()
-        textRect.center = (180, Y // 2 -20)
+        textRect.center = (X // 2, Y // 2 -20)
         display_surface.blit(text, textRect)
         pygame.display.update()
        

@@ -149,8 +149,7 @@ def functCONNECTOBD():
 
 ### Printing functions
 def functHIGHLIGHTBOOTDISPLAY():
-
-    
+    print("inside display")
     
     
     if bootState['obd'][1]=="fail":

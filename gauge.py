@@ -32,7 +32,8 @@ red = (255,0,0)
 black = (0,0,0)
 
 Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
-font1 = pygame.font.Font('freesansbold.ttf', 40)
+font1 = pygame.font.Font('freesansbold.ttf', 20)
+font2 = pygame.font.Font('freesansbold.ttf', 40)
 
 ###
 #
@@ -257,11 +258,15 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     pygame.display.update()
     time.sleep(5)
     
-def functDISPLAYGAUGE(pid):
+def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     display_surface.fill(black)
-    text = font1.render(pid, True, red, black)
+    text = font1.render(pid, True, white, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 +150)
+    display_surface.blit(text, textRect)
+    text = font2.render(postfix, True, white, black)
+    textRect = text.get_rect()
+    textRect.center = (X // 2, Y // 2 +120)
     display_surface.blit(text, textRect)
     pygame.display.update()
     time.sleep(5)
@@ -287,14 +292,14 @@ def functGETIPADDRESS():
 
 
 @touch.on_touch
-def handle_touch(touch_id, x, y, state):
+def handle_touch(touch_id, x, y, state,psi):
     print(touch_id, x, y, state)
 
 
 
 ### Menu functions
 def funtMENULOOP (item,menu):
-    print("asdf")
+    print("")
     
    
 
@@ -310,7 +315,7 @@ def funtMENULOOP (item,menu):
 #
 ####
 functFIRSTBOOT()
-functDISPLAYGAUGE("o2 Pressure")
+functDISPLAYGAUGE("Boost",10,100,90)
 
 
 #try:

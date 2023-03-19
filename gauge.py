@@ -182,7 +182,7 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['bt'][0]
         text = Loadingfont.render("Bluetooth", True, white, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 -90)
+        textRect.center = (X // 2, Y // 2 -80)
         display_surface.blit(text, textRect)
 
         display_surface.blit(text, textRect)

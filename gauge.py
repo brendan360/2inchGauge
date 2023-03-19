@@ -139,7 +139,6 @@ def functCONNECTOBD():
                 functHIGHLIGHTBOOTDISPLAY()
                 continue
         except:
-            print("failed thread")
             i=i+1
             bootState['obd']=(i,"fail",0)
             functHIGHLIGHTBOOTDISPLAY()   
@@ -263,6 +262,7 @@ def functDISPLAYGAUGE(pid):
     text = font1.render(pid, True, red, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 +150)
+    display_surface.blit(text, textRect)
     pygame.display.update()
     time.sleep(5)
     

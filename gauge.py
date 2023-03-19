@@ -260,9 +260,10 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     
 def functDISPLAYGAUGE(pid):
     display_surface.fill(black)
-    text = font.render(pid, True, red, black)
+    text = font1.render(pid, True, red, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 +150)
+    time.sleep(5)
     
     
     

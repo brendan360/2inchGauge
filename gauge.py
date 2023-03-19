@@ -266,7 +266,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     display_surface.fill(black)
     text = font1.render(pid, True, white, black)
     textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +180)
+    textRect.center = (X // 2, Y // 2 +195)
     display_surface.blit(text, textRect)
     text = font3.render(postfix, True, white, black)
     textRect = text.get_rect()

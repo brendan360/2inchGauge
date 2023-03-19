@@ -197,7 +197,7 @@ def functHIGHLIGHTBOOTDISPLAY():
             textRect.center = (X // 2, Y // 2 -80)
             display_surface.blit(text, textRect)
             pygame.display.update()
-            time.sleep(5)
+
     else:
         faildot="."*bootState['bt'][0]
         text = Loadingfont.render("Bluetooth", True, green, black)
@@ -215,19 +215,19 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['obd'][0]
         text = Loadingfont.render("OBD", True, white, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +30)
+        textRect.center = (X // 2, Y // 2 +50)
         display_surface.blit(text, textRect)
 
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, red, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +100)
+        textRect.center = (X // 2, Y // 2 +120)
         display_surface.blit(text, textRect)
         pygame.display.update()
         if bootState['obd'][0]==5:
             text = Loadingfont.render("OBD", True, red, black)
             textRect = text.get_rect()
-            textRect.center = (X // 2, Y // 2 +30)
+            textRect.center = (X // 2, Y // 2 +50)
             display_surface.blit(text, textRect)
             pygame.display.update()
             time.sleep(5)
@@ -235,11 +235,11 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['obd'][0]
         text = Loadingfont.render("OBD", True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2+30)
+        textRect.center = (X // 2, Y // 2+50)
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +100)
+        textRect.center = (X // 2, Y // 2 +120)
         display_surface.blit(text, textRect)
         pygame.display.update()
        
@@ -255,8 +255,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     textRect.center = (X // 2, Y // 2 +10 )
     display_surface.blit(text, textRect)
     pygame.display.update()
-    time.sleep(10)
-    
+    time.sleep(5)
 
 ### Helper functions
 def functREINITIALISE():

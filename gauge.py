@@ -32,8 +32,8 @@ red = (255,0,0)
 black = (0,0,0)
 
 Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
-font1 = pygame.font.Font('freesansbold.ttf', 20)
-font2 = pygame.font.Font('freesansbold.ttf', 40)
+font1 = pygame.font.Font('freesansbold.ttf', 30)
+font2 = pygame.font.Font('freesansbold.ttf', 50)
 
 ###
 #
@@ -266,7 +266,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     display_surface.blit(text, textRect)
     text = font2.render(postfix, True, white, black)
     textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +120)
+    textRect.center = (X // 2, Y // 2 +100)
     display_surface.blit(text, textRect)
     pygame.display.update()
     time.sleep(5)

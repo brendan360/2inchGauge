@@ -38,7 +38,7 @@ font3 = pygame.font.Font('freesansbold.ttf', 60)
 font4 = pygame.font.Font('freesansbold.ttf', 70)
 font5 = pygame.font.Font('freesansbold.ttf', 80)
 font6 = pygame.font.Font('freesansbold.ttf', 90)
-font7 = pygame.font.Font('freesansbold.ttf', 100)
+font7 = pygame.font.Font('freesansbold.ttf', 115)
 ###
 #
 #touch setup

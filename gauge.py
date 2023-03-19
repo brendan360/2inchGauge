@@ -173,6 +173,7 @@ def functHIGHLIGHTBOOTDISPLAY():
             textRect.center = (X // 2, Y // 2 -80)
             display_surface.blit(text, textRect)
             pygame.display.update()
+            time.sleep(5)
     else:
         faildot="."*bootState['obd'][0]
         text = Loadingfont.render("OBD", True, green, black)
@@ -184,7 +185,7 @@ def functHIGHLIGHTBOOTDISPLAY():
         textRect.center = (X // 2, Y // 2 -20)
         display_surface.blit(text, textRect)
         pygame.display.update()
-        time.sleep(5)
+       
 
 def functHIGHLIGHTDISPLAY(text1,text2):
     display_surface.fill(black)

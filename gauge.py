@@ -107,6 +107,7 @@ def functCONNECTBT():
             i=i+1
             bootState['bt']=(i,"fail",0)
             functHIGHLIGHTBOOTDISPLAY()   
+            
     
 
 def functCONNECTOBD():
@@ -181,19 +182,19 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['bt'][0]
         text = Loadingfont.render("Bluetooth", True, white, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +20)
+        textRect.center = (X // 2, Y // 2 -90)
         display_surface.blit(text, textRect)
 
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, red, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +80)
+        textRect.center = (X // 2, Y // 2 -30)
         display_surface.blit(text, textRect)
         pygame.display.update()
         if bootState['bt'][0]==5:
             text = Loadingfont.render("Bluetooth", True, red, black)
             textRect = text.get_rect()
-            textRect.center = (X // 2, Y // 2 +20)
+            textRect.center = (X // 2, Y // 2 -80)
             display_surface.blit(text, textRect)
             pygame.display.update()
             time.sleep(5)
@@ -201,11 +202,11 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['bt'][0]
         text = Loadingfont.render("Bluetooth", True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +20)
+        textRect.center = (X // 2, Y // 2 -80)
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 +80)
+        textRect.center = (X // 2, Y // 2 -30)
         display_surface.blit(text, textRect)
         pygame.display.update()
     
@@ -214,19 +215,19 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['obd'][0]
         text = Loadingfont.render("OBD", True, white, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 -80)
+        textRect.center = (X // 2, Y // 2 +30)
         display_surface.blit(text, textRect)
 
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, red, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 -20)
+        textRect.center = (X // 2, Y // 2 +100)
         display_surface.blit(text, textRect)
         pygame.display.update()
         if bootState['obd'][0]==5:
             text = Loadingfont.render("OBD", True, red, black)
             textRect = text.get_rect()
-            textRect.center = (X // 2, Y // 2 -80)
+            textRect.center = (X // 2, Y // 2 +30)
             display_surface.blit(text, textRect)
             pygame.display.update()
             time.sleep(5)
@@ -234,11 +235,11 @@ def functHIGHLIGHTBOOTDISPLAY():
         faildot="."*bootState['obd'][0]
         text = Loadingfont.render("OBD", True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 -80)
+        textRect.center = (X // 2, Y // 2+30)
         display_surface.blit(text, textRect)
         text = Loadingfont.render(faildot, True, green, black)
         textRect = text.get_rect()
-        textRect.center = (X // 2, Y // 2 -20)
+        textRect.center = (X // 2, Y // 2 +100)
         display_surface.blit(text, textRect)
         pygame.display.update()
        

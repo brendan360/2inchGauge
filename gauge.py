@@ -79,7 +79,35 @@ def functINITCOMMS():
     functCONNECTOBD()
   
 def functCONNECTBT():
-    print("starting BT")
+    global statusState
+    statusState="na"
+    i=0
+    while i<5:
+        time.sleep(2)
+        try:
+            threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
+         
+            
+        #    connection = obd.OBD(obdConnection, check_voltage=False, baudrate=9600)
+        #    statusState=connection.status()
+            if statusState == "Car Connected":
+                bootState['bt']=(i,"win",1)
+                functHIGHLIGHTBOOTDISPLAY()
+                connection.close()
+                return
+            else:
+                print("failing after winning")
+                i=i+1
+                time.sleep(1)
+                bootState['bt']=(i,"fail",0)
+                functHIGHLIGHTBOOTDISPLAY()
+                continue
+        except:
+            print("failed thread")
+            i=i+1
+            bootState['bt']=(i,"fail",0)
+            functHIGHLIGHTBOOTDISPLAY()   
+    
 
 def functCONNECTOBD():
     global statusState
@@ -149,7 +177,37 @@ def functCONNECTOBD():
 
 ### Printing functions
 def functHIGHLIGHTBOOTDISPLAY():
-    print("inside display")
+    if bootState['bt'][1]=="fail":
+        faildot="."*bootState['bt'][0]
+        text = Loadingfont.render("Bluetooth", True, white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -80)
+        display_surface.blit(text, textRect)
+
+        display_surface.blit(text, textRect)
+        text = Loadingfont.render(faildot, True, red, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -20)
+        display_surface.blit(text, textRect)
+        pygame.display.update()
+        if bootState['bt'][0]==5:
+            text = Loadingfont.render("Bluetooth", True, red, black)
+            textRect = text.get_rect()
+            textRect.center = (X // 2, Y // 2 -80)
+            display_surface.blit(text, textRect)
+            pygame.display.update()
+            time.sleep(5)
+    else:
+        faildot="."*bootState['bt'][0]
+        text = Loadingfont.render("Bluetooth", True, green, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -80)
+        display_surface.blit(text, textRect)
+        text = Loadingfont.render(faildot, True, green, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 -20)
+        display_surface.blit(text, textRect)
+        pygame.display.update()
     
     
     if bootState['obd'][1]=="fail":

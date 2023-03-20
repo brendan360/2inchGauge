@@ -371,11 +371,10 @@ while True:
            # percentage = 0
          #       screen.fill(bg_c)
       #my_gauge.draw(percent=20)
-    my_gauge.draw(percent=percentage)
-    pygame.display.update()
-    clock.tick(fps)
+
+    
     functDISPLAYGAUGE("Boost",10,100,90,"psi",percentage)
-    pygame.display.update()
+    time.sleep(1)
  
 
 

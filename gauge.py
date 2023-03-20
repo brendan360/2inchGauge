@@ -55,7 +55,7 @@ touch = Touch(bus=11, i2c_addr=0x15, interrupt_pin=27)
 ###
 address="/home/pi/2inchGauge/"
 
-bootState={"Bluetooth":[0,"fail",0],
+bootState={"bluetooth":[0,"fail",0],
            "obd":[0,"fail",0]
            }
 
@@ -186,7 +186,7 @@ def functCONNECTOBD():
 def functHIGHLIGHTBOOTDISPLAY():
     if bootState['bt'][1]=="fail":
         faildot="."*bootState['bt'][0]
-        text = Loadingfont.render("Bluetooth", True, white, black)
+        text = Loadingfont.render("bluetooth", True, white, black)
         textRect = text.get_rect()
         textRect.center = (X // 2, Y // 2 -80)
         display_surface.blit(text, textRect)
@@ -198,7 +198,7 @@ def functHIGHLIGHTBOOTDISPLAY():
         display_surface.blit(text, textRect)
         pygame.display.update()
         if bootState['bt'][0]==5:
-            text = Loadingfont.render("Bluetooth", True, red, black)
+            text = Loadingfont.render("bluetooth", True, red, black)
             textRect = text.get_rect()
             textRect.center = (X // 2, Y // 2 -80)
             display_surface.blit(text, textRect)
@@ -206,7 +206,7 @@ def functHIGHLIGHTBOOTDISPLAY():
 
     else:
         faildot="."*bootState['bt'][0]
-        text = Loadingfont.render("Bluetooth", True, green, black)
+        text = Loadingfont.render("bluetooth", True, green, black)
         textRect = text.get_rect()
         textRect.center = (X // 2, Y // 2 -80)
         display_surface.blit(text, textRect)
@@ -280,7 +280,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     pygame.display.update()
 
 
-    center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+    center = (X // 2, Y // 2)
     radius = 100
     thickness = 20
     start_angle = math.pi / 2
@@ -290,23 +290,23 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
 
 # Determine gauge color based on input value
     if input_value < 30:
-        gauge_color = BLUE
+        gauge_color = blue
     elif input_value < 80:
-        gauge_color = GREEN
+        gauge_color = green
     else:
-        gauge_color = RED
+        gauge_color = red
 
 # Calculate the angle range based on input value
     angle_range = (end_angle - start_angle) * input_value / 100
 
 # Draw the gauge background
-    pygame.draw.arc(screen, BLACK, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
+    pygame.draw.arc(screen, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
 
 # Draw the gauge fill
     pygame.draw.arc(screen, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
 
 # Draw the center circle
-    pygame.draw.circle(screen, BLACK, center, thickness//2)
+    pygame.draw.circle(screen, black, center, thickness//2)
 
 # Update the display
     pygame.display.flip()

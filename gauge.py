@@ -279,7 +279,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
         gauge_color = blue
     elif input_value < 80:
         gauge_color = green
-    else:
+    else: 
         gauge_color = red
 
 # Calculate the angle range based on input value

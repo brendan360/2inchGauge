@@ -274,7 +274,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     start_angle = 2 * math.pi / 4  # 135 degrees
     end_angle = start_angle + math.pi
 
-    input_value = 99
+    input_value = 30
 
 # Determine gauge color based on input value
     if input_value < 30:

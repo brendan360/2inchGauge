@@ -269,7 +269,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     center = (X // 2, Y // 2)
     radius = 220
     thickness =60
-    start_angle = 6 * math.pi / 5  # 135 degrees
+    start_angle = 6 * math.pi / 4  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 6
 
     input_value = 100
@@ -297,7 +297,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     
     text = font1.render(pid, True, white, black)
     textRect = text.get_rect()
-    textRect.center = (X // 2 -120 , Y // 2)
+    textRect.center = (X // 2 -180 , Y // 2)
     display_surface.blit(text, textRect)
     text = font3.render(postfix, True, white, black)
     textRect = text.get_rect()

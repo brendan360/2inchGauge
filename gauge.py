@@ -363,7 +363,7 @@ def funtMENULOOP (item,menu):
 ####
 #functFIRSTBOOT()
 functDISPLAYGAUGE("Boost",10,100,90,"psi")
-    time.sleep(10)
+ 
 
 
 #try:

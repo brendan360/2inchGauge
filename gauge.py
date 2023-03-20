@@ -270,7 +270,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     radius = 220
     thickness =60
     start_angle = 6 * math.pi / 5  # 135 degrees
-    end_angle = start_angle + 8 * math.pi / 6
+    end_angle = start_angle + 8 * math.pi / 5
 
     input_value = 100
 

@@ -311,12 +311,6 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
 # Update the display
     pygame.display.flip()
 
-# Wait for user to close window
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
  
     
     

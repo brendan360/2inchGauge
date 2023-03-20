@@ -31,6 +31,7 @@ blue = (0, 0, 128)
 red = (255,0,0)
 black = (0,0,0)
 
+
 Loadingfont = pygame.font.Font('freesansbold.ttf', 60)
 font1 = pygame.font.Font('freesansbold.ttf', 30)
 font2 = pygame.font.Font('freesansbold.ttf', 50)
@@ -277,8 +278,46 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect)
     pygame.display.update()
-    time.sleep(5)
-    
+
+
+    center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+    radius = 100
+    thickness = 20
+    start_angle = math.pi / 2
+    end_angle = 5 * math.pi / 2
+
+    input_value = 70
+
+# Determine gauge color based on input value
+    if input_value < 30:
+        gauge_color = BLUE
+    elif input_value < 80:
+        gauge_color = GREEN
+    else:
+        gauge_color = RED
+
+# Calculate the angle range based on input value
+    angle_range = (end_angle - start_angle) * input_value / 100
+
+# Draw the gauge background
+    pygame.draw.arc(screen, BLACK, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
+
+# Draw the gauge fill
+    pygame.draw.arc(screen, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
+
+# Draw the center circle
+    pygame.draw.circle(screen, BLACK, center, thickness//2)
+
+# Update the display
+    pygame.display.flip()
+
+# Wait for user to close window
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+ 
     
     
 
@@ -324,6 +363,7 @@ def funtMENULOOP (item,menu):
 ####
 #functFIRSTBOOT()
 functDISPLAYGAUGE("Boost",10,100,90,"psi")
+    time.sleep(10)
 
 
 #try:

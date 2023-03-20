@@ -263,7 +263,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     pygame.display.update()
     time.sleep(5)
     
-def functDISPLAYGAUGE(pid,low,high,warning,postfix):
+def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
     display_surface.fill(black)
 
     center = (X // 2, Y // 2)
@@ -272,7 +272,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     start_angle = 6 * math.pi / 5  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 5
 
-    input_value = 100
+    input_value = percentage
 
 # Determine gauge color based on input value
     if input_value < 30:
@@ -339,7 +339,7 @@ def functGETIPADDRESS():
 
 
 @touch.on_touch
-def handle_touch(touch_id, x, y, state,psi):
+def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
 
 
@@ -362,7 +362,20 @@ def funtMENULOOP (item,menu):
 #
 ####
 #functFIRSTBOOT()
-functDISPLAYGAUGE("Boost",10,100,90,"psi")
+
+while True:
+        # FOR SHOWING CHANGE IN GAUGE
+     # rangauge = ser.readline()
+     # percentage = int(rangauge)
+    percentage=randint(10, 100)
+           # percentage = 0
+         #       screen.fill(bg_c)
+      #my_gauge.draw(percent=20)
+    my_gauge.draw(percent=percentage)
+    pygame.display.update()
+    clock.tick(fps)
+    functDISPLAYGAUGE("Boost",10,100,90,"psi",percentage)
+    pygame.display.update()
  
 
 

@@ -272,7 +272,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     radius = 200
     thickness = 50
     start_angle = 6 * math.pi / 5  # 135 degrees
-    end_angle = start_angle + 8 * math.pi /5
+    end_angle = start_angle + 8 * math.pi /
 
     input_value = 100
 
@@ -297,11 +297,11 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     pygame.draw.circle(display_surface, black, center, thickness//2)
     text = font1.render(pid, True, white, black)
     textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +195)
+    textRect.center = (X // 2 -120 , Y // 2)
     display_surface.blit(text, textRect)
     text = font3.render(postfix, True, white, black)
     textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +115)
+    textRect.center = (X // 2, Y // 2 +100)
     display_surface.blit(text, textRect)
     text = font7.render("12.1", True, white, black)
     textRect = text.get_rect()

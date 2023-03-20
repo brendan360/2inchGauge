@@ -271,9 +271,11 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     center = (X // 2, Y // 2)
     radius = 200
     thickness = 50
-    start_angle = 3 * math.pi / 4  # 135 degrees
-    end_angle = 9 * math.pi / 4  # 405 degrees
+#    start_angle = 3 * math.pi / 4  # 135 degrees
+#    end_angle = 9 * math.pi / 4  # 405 degrees
 
+    start_angle = 0  # Rotate by 90 degrees
+    end_angle = math.pi  # Rotate by 90 degrees
     input_value = 99
 
 # Determine gauge color based on input value

@@ -309,7 +309,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     pygame.draw.arc(gauge_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
 
 # Draw the center circle
-    pygame.draw.circle(gauge, black, center, thickness//2)
+    pygame.draw.circle(gauge_surface, black, center, thickness//2)
 
 # Update the display
     pygame.display.flip()

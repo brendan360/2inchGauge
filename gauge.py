@@ -281,7 +281,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
 
 
     center = (X // 2, Y // 2)
-    radius = 100
+    radius = 200
     thickness = 150
     start_angle = 3* math.pi / 4
     end_angle = 9 * math.pi / 4
@@ -295,18 +295,21 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
         gauge_color = green
     else:
         gauge_color = red
+        
+gauge_surface = pygame.Surface((X, Y), pygame.SRCALPHA)
+gauge_surface.set_colorkey((0, 0, 0))
 
 # Calculate the angle range based on input value
     angle_range = (end_angle - start_angle) * input_value / 100
 
 # Draw the gauge background
-    pygame.draw.arc(display_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
+    pygame.draw.arc(gauge_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
 
 # Draw the gauge fill
-    pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
+    pygame.draw.arc(gauge_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
 
 # Draw the center circle
-    pygame.draw.circle(display_surface, black, center, thickness//2)
+    pygame.draw.circle(gauge, black, center, thickness//2)
 
 # Update the display
     pygame.display.flip()

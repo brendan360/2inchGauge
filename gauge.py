@@ -309,6 +309,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     display_surface.blit(text, textRect)
     pygame.display.update()
 # Update the display
+
     pygame.display.flip()
 
 # Wait for user to close window

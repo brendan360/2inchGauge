@@ -300,13 +300,13 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     angle_range = (end_angle - start_angle) * input_value / 100
 
 # Draw the gauge background
-    pygame.draw.arc(screen, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
+    pygame.draw.arc(display_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
 
 # Draw the gauge fill
-    pygame.draw.arc(screen, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
+    pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
 
 # Draw the center circle
-    pygame.draw.circle(screen, black, center, thickness//2)
+    pygame.draw.circle(display_surface, black, center, thickness//2)
 
 # Update the display
     pygame.display.flip()

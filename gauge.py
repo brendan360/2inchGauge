@@ -306,7 +306,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     text = font7.render("12.1", True, white, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2)
-    display_surface.blit(text, textRect)
+    display_surface.blit(text, textRect) 
     pygame.display.update()
 # Update the display
     pygame.display.flip()

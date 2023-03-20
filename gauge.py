@@ -296,8 +296,8 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix):
     else:
         gauge_color = red
         
-gauge_surface = pygame.Surface((X, Y), pygame.SRCALPHA)
-gauge_surface.set_colorkey((0, 0, 0))
+    gauge_surface = pygame.Surface((X, Y), pygame.SRCALPHA)
+    gauge_surface.set_colorkey((0, 0, 0))
 
 # Calculate the angle range based on input value
     angle_range = (end_angle - start_angle) * input_value / 100

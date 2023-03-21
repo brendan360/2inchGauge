@@ -291,7 +291,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
 # Draw the gauge fill
     pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
     index_length = 20
-    index_thickness = 2
+    index_thickness = 20
     pygame.draw.line(display_surface, (0, 0, 0), (center[0], center[1] - radius), (center[0], center[1] - radius - index_length), index_thickness)
     pygame.draw.line(display_surface, (0, 0, 0), (center[0], center[1] + radius), (center[0], center[1] + radius + index_length), index_thickness)
 

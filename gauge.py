@@ -311,8 +311,8 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
     font = pygame.font.SysFont(None, 30)
     text1 = font.render("20%", True, black)
     text2 = font.render("80%", True, black)
-    text1_rect = text1.get_rect(center=(center[0] + radius * math.cos(-math.pi / 4), center_y - radius * math.sin(-math.pi / 4)))
-    text2_rect = text2.get_rect(center=(center[0] + radius * math.cos(-math.pi * 5 / 4), center_y - radius * math.sin(-math.pi * 5 / 4)))
+    text1_rect = text1.get_rect(center=(center[0] + radius * math.cos(-math.pi / 4), center[1] - radius * math.sin(-math.pi / 4)))
+    text2_rect = text2.get_rect(center=(center[0] + radius * math.cos(-math.pi * 5 / 4), center[1] - radius * math.sin(-math.pi * 5 / 4)))
     screen.blit(text1, text1_rect)
     screen.blit(text2, text2_rect)
 

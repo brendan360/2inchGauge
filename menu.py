@@ -1,82 +1,92 @@
 import pygame
 
+# Define some colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GRAY = (128, 128, 128)
+RED = (255, 0, 0)
+
 # Initialize Pygame
 pygame.init()
 
-# Define colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-GRAY = (128, 128, 128)
+# Set up the window
+size = (400, 400)
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Menu Example")
 
-# Define fonts
-FONT = pygame.font.SysFont(None, 30)
-SELECTED_FONT = pygame.font.SysFont(None, 35, bold=True)
+# Set up the font
+font = pygame.font.SysFont('Calibri', 20, True, False)
 
-# Define menu items
-MENU_ITEMS = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10"]
+# Set up the menu items
+menu_items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10"]
+num_items = len(menu_items)
 
-# Define screen dimensions
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+# Set up the menu dimensions
+menu_width = 200
+menu_height = num_items * 30
+menu_top = (size[1] - menu_height) // 2
+menu_left = (size[0] - menu_width) // 2
+menu_rect = pygame.Rect(menu_left, menu_top, menu_width, menu_height)
 
-# Create screen
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-# Define scrollable area dimensions
-AREA_WIDTH = 200
-AREA_HEIGHT = 300
-AREA_X = (SCREEN_WIDTH - AREA_WIDTH) // 2
-AREA_Y = 150
-
-# Define button dimensions
-BUTTON_WIDTH = 50
-BUTTON_HEIGHT = 50
-TOP_BUTTON_X = AREA_X + (AREA_WIDTH - BUTTON_WIDTH) // 2
-TOP_BUTTON_Y = AREA_Y - BUTTON_HEIGHT - 10
-BOTTOM_BUTTON_X = TOP_BUTTON_X
-BOTTOM_BUTTON_Y = AREA_Y + AREA_HEIGHT + 10
-
-# Define selected item dimensions
-SELECTED_ITEM_X = AREA_X + (AREA_WIDTH - SELECTED_FONT.size(MENU_ITEMS[0])[0]) // 2
-SELECTED_ITEM_Y = AREA_Y + (AREA_HEIGHT - SELECTED_FONT.size(MENU_ITEMS[0])[1]) // 2
-
-# Define variables
+# Set up the scrolling
+scroll_amount = 30
+scroll_top = 0
+scroll_bottom = menu_height - size[1] + menu_top
 scroll_offset = 0
-selected_item_index = None
 
-# Define functions
-def draw_scrollable_area():
-    area_surface = pygame.Surface((AREA_WIDTH, AREA_HEIGHT))
-    area_surface.fill(WHITE)
-    for i, item in enumerate(MENU_ITEMS[scroll_offset:scroll_offset+5]):
-        text_surface = FONT.render(item, True, BLACK)
-        text_rect = text_surface.get_rect(x=10, y=10+i*(text_surface.get_height()+10))
-        area_surface.blit(text_surface, text_rect)
-    screen.blit(area_surface, (AREA_X, AREA_Y))
-    
-def draw_buttons():
-    top_button_surface = pygame.Surface((BUTTON_WIDTH, BUTTON_HEIGHT))
-    top_button_surface.fill(GRAY)
-    bottom_button_surface = pygame.Surface((BUTTON_WIDTH, BUTTON_HEIGHT))
-    bottom_button_surface.fill(GRAY)
-    top_text_surface = FONT.render("^", True, BLACK)
-    top_text_rect = top_text_surface.get_rect(center=(BUTTON_WIDTH//2, BUTTON_HEIGHT//2))
-    bottom_text_surface = FONT.render("v", True, BLACK)
-    bottom_text_rect = bottom_text_surface.get_rect(center=(BUTTON_WIDTH//2, BUTTON_HEIGHT//2))
-    top_button_surface.blit(top_text_surface, top_text_rect)
-    bottom_button_surface.blit(bottom_text_surface, bottom_text_rect)
-    screen.blit(top_button_surface, (TOP_BUTTON_X, TOP_BUTTON_Y))
-    screen.blit(bottom_button_surface, (BOTTOM_BUTTON_X, BOTTOM_BUTTON_Y))
+# Set up the selected item
+selected_index = None
 
-def draw_selected_item():
-    if selected_item_index is not None:
-        selected_item_surface = SELECTED_FONT.render(MENU_ITEMS[selected_item_index], True, BLACK)
-        selected_item_rect = selected_item_surface.get_rect(x=SELECTED_ITEM_X, y=SELECTED_ITEM_Y)
-        screen.blit(selected_item_surface, selected_item_rect)
+# Set up the main loop
+done = False
+clock = pygame.time.Clock()
 
-# Main game loop
-running = True
-while running:
-    # Event handling
+while not done:
+    # Handle events
     for event in pygame.event.get():
-        if event.type == pygame
+        if event.type == pygame.QUIT:
+            done = True
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            # Handle clicks on menu items
+            if menu_rect.collidepoint(event.pos):
+                index = (event.pos[1] - menu_top + scroll_offset) // 30
+                if 0 <= index < num_items:
+                    selected_index = index
+            # Handle clicks on scroll buttons
+            elif event.pos[0] < menu_left:
+                scroll_offset += scroll_amount
+                if scroll_offset > scroll_bottom:
+                    scroll_offset = scroll_bottom
+            elif event.pos[0] > menu_left + menu_width:
+                scroll_offset -= scroll_amount
+                if scroll_offset < -scroll_top:
+                    scroll_offset = -scroll_top
+        elif event.type == pygame.KEYDOWN:
+            # Handle Enter key to print selected item
+            if event.key == pygame.K_RETURN and selected_index is not None:
+                print(menu_items[selected_index])
+    
+    # Clear the screen
+    screen.fill(WHITE)
+    
+    # Draw the menu
+    pygame.draw.rect(screen, GRAY, menu_rect, 1)
+    for i in range(num_items):
+        text = font.render(menu_items[i], True, BLACK)
+        text_rect = text.get_rect()
+        text_rect.left = menu_left + 10
+        text_rect.top = menu_top + i * 30 - scroll_offset
+        screen.blit(text, text_rect)
+    
+    # Draw the scroll buttons
+    pygame.draw.rect(screen, RED, pygame.Rect(0, 0, menu_left, size[1]))
+    pygame.draw.rect(screen, RED, pygame.Rect(menu_left + menu_width, 0, size[0] - menu_left - menu_width, size[1]))
+    
+    # Update the display
+    pygame.display.flip()
+    
+    # Limit the frame rate
+    clock.tick(60)
+
+# Clean up Pygame
+pygame.quit()

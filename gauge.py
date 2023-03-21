@@ -290,12 +290,8 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
 
 # Draw the gauge fill
     pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
-    index_length = 100
-    index_thickness = 100
-    pygame.draw.line(display_surface, (0, 0, 0), (center[0], center[1] - radius), (center[0], center[1] - radius - index_length), index_thickness)
-    pygame.draw.line(display_surface, (0, 0, 0), (center[0], center[1] + radius), (center[0], center[1] + radius + index_length), index_thickness)
-
-
+    thickness = 40  
+ 
 # Draw the center circle
     pygame.draw.circle(display_surface, black, center, thickness//2)
     
@@ -311,7 +307,10 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect) 
-    
+    pygame.draw.line(screen, black, (center[0] + radius * math.cos(start_angle + 0.2*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.2*(end_angle-start_angle))), (center[0] + radius * math.cos(start_angle + 0.2*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.2*(end_angle-start_angle))), thickness)
+    pygame.draw.line(screen, black, (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), thickness)
+ 
+
     pygame.display.update()
 
 

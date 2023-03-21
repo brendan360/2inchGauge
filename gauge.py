@@ -311,6 +311,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
     pygame.draw.line(display_surface, black, (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), thickness)
  
 
+
     pygame.display.update()
 
 

@@ -19,26 +19,31 @@ from random import randint
 #
 #GLOBAL CONFIGS
 #
-### 
+###
 
+address="/home/pi/2inchGauge/"
+
+bootState={"bluetooth":[0,"fail",0],
+           "obd":[0,"fail",0]
+           }
 
 
 #              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,alertcount
 gaugeItems={
-"FUEL_LEVEL":["2F",0,"Fuel %","0",14,"b","na","na",0],
-"SPEED":["0D",0,"Speed","0",12,"a","na","na",0],
-"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
-"INTAKE_TEMP":["0F",0,"Intake C","0",14,"a","na","100",0],
-"RPM":["0C",0,"RPM","0",11,"a","na","6000",0]
-"OIL_PRESSURE"[   ],
-"OIL_TEMP":[     ],
-"COOLANT_PRESSURE":[    ],
-"COOLANT_TEMP":[        ],
-"FUEL_RAIL_PRES":[        ],
-"BOOST":[    ],
-"WIDEBAND_02":[        ],
-"BLOCK_TEMP":[
+"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na",0],
+"SPEED":["0D",0,"Speed","0",2,"a","na","na",0],
+"INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100",0],
+"RPM":["0C",0,"RPM","0",4,"a","na","6000",0]
+"OIL_PRESSURE"["D1",0,"Oil Pres","0",5,"d","na","na",0],
+"OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na",0],
+"COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na",0],
+"COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na",0],
+"FUEL_RAIL_PRES":["D1",0,"Fuel Pres","0",5,"d","na","na",0],
+"BOOST":["D1",0,"Boost","0",5,"d","na","na",0],
+"WIDEBAND_02":["D1",0,"AFR","0",5,"d","na","na",0],
+"BLOCK_TEMP":["D1",0,"Block Temp","0",5,"d","na","na",0]
 
+#"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
 #BAROMETRIC_PRESSURE":["33",0,"Air Pres","0",18,"b","na","na",0],
 #"AMBIANT_AIR_TEMP":["46",0,"Air °C","0",5,"c","na","na",0],
 #"THROTTLE_POS":["11",0,"Throttle","0",15,"a","na","na",0],
@@ -81,6 +86,8 @@ font4 = pygame.font.Font('freesansbold.ttf', 70)
 font5 = pygame.font.Font('freesansbold.ttf', 80)
 font6 = pygame.font.Font('freesansbold.ttf', 90)
 font7 = pygame.font.Font('freesansbold.ttf', 115)
+
+
 ###
 #
 #touch setup
@@ -89,16 +96,6 @@ font7 = pygame.font.Font('freesansbold.ttf', 115)
 touch = Touch(bus=11, i2c_addr=0x15, interrupt_pin=27)
 
 
-###
-#
-#GLOABL variables
-#
-###
-address="/home/pi/2inchGauge/"
-
-bootState={"bluetooth":[0,"fail",0],
-           "obd":[0,"fail",0]
-           }
 
 ####
 #

@@ -34,7 +34,7 @@ gaugeItems={
 "SPEED":["0D",0,"Speed","0",2,"a","na","na",0],
 "INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100",0],
 "RPM":["0C",0,"RPM","0",4,"a","na","6000",0]
-"OIL_PRESSURE"["D1",0,"Oil Pres","0",5,"d","na","na",0],
+"OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na",0],
 "OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na",0],
 "COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na",0],
 "COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na",0],

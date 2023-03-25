@@ -14,6 +14,47 @@ import threading
 
 from random import randint
  
+ 
+###
+#
+#GLOBAL CONFIGS
+#
+### 
+
+
+
+#              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,alertcount
+gaugeItems={
+"FUEL_LEVEL":["2F",0,"Fuel %","0",14,"b","na","na",0],
+"SPEED":["0D",0,"Speed","0",12,"a","na","na",0],
+"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
+"INTAKE_TEMP":["0F",0,"Intake C","0",14,"a","na","100",0],
+"RPM":["0C",0,"RPM","0",11,"a","na","6000",0]
+"OIL_PRESSURE"[   ],
+"OIL_TEMP":[     ],
+"COOLANT_PRESSURE":[    ],
+"COOLANT_TEMP":[        ],
+"FUEL_RAIL_PRES":[        ],
+"BOOST":[    ],
+"WIDEBAND_02":[        ],
+"BLOCK_TEMP":[
+
+#BAROMETRIC_PRESSURE":["33",0,"Air Pres","0",18,"b","na","na",0],
+#"AMBIANT_AIR_TEMP":["46",0,"Air °C","0",5,"c","na","na",0],
+#"THROTTLE_POS":["11",0,"Throttle","0",15,"a","na","na",0],
+#"RUN_TIME":["1F",0,"Run Time","0",30,"a","na","na",0],
+#"COOLANT_TEMP":["05",0,"Water °C","0",4,"a","na","100",0],
+#"FUEL_PRESSURE":["0A",0,"Fuel Pres","0",9,"a","na","100",0],
+#"INTAKE_PRESSURE":["0B",0,"Intake Pres","0",10,"a","na","100",0],
+#"ENGINE_LOAD":["04",0,"Engine Load","0",3,"a","na","100",0],
+#"MAF":["10",0,"MAF","0",15,"a","na","100",0],
+
+}
+ 
+ 
+ 
+ 
+ 
 ###
 #
 #display setup

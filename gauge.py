@@ -304,6 +304,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
 def functDISPLAYGAUGE(gaugeItem):
     display_surface.fill(black)
     print(gaugeItems[gaugeItem][2])
+    print(gaugeItems[gaugeItem][3])
 
     center = (X // 2, Y // 2)
     radius = 220
@@ -314,9 +315,9 @@ def functDISPLAYGAUGE(gaugeItem):
     input_value = gaugeItems[gaugeItem][3]
 
 # Determine gauge color based on input value
-    if input_value < int(gaugeItems[gaugeItem][8]):
+    if int(input_value) < int(gaugeItems[gaugeItem][8]):
         gauge_color = blue
-    elif input_value < int(gaugeItems[gaugeItem][9]):
+    elif int(input_value) < int(gaugeItems[gaugeItem][9]):
         gauge_color = green
     else: 
         gauge_color = red
@@ -347,9 +348,7 @@ def functDISPLAYGAUGE(gaugeItem):
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect) 
   
-  
     pygame.display.update()
-
 
     pygame.display.flip()
 

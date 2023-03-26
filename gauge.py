@@ -387,7 +387,7 @@ def funtMENULOOP (item,menu):
 def functFILLDATA():
 
      for i in gaugeItems.keys():
-     time.sleep(1)
+        time.sleep(1)
         gaugeItems[i][3]=randint(10, 100)
 
 

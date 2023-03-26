@@ -337,7 +337,7 @@ def functDISPLAYGAUGE(gaugeItem):
     textRect = text.get_rect()
     textRect.center = (X // 2 -180 , Y // 2)
     display_surface.blit(text, textRect)
-    text = font3.render(postfix, True, white, black)
+    text = font3.render(gaugeItems[gaugeItem][10],, True, white, black)
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2 +100)
     display_surface.blit(text, textRect)
@@ -345,11 +345,8 @@ def functDISPLAYGAUGE(gaugeItem):
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect) 
-    pygame.draw.line(display_surface, black, (center[0] + radius * math.cos(start_angle + 0.2*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.2*(end_angle-start_angle))), (center[0] + radius * math.cos(start_angle + 0.2*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.2*(end_angle-start_angle))), thickness)
-    pygame.draw.line(display_surface, black, (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), (center[0] + radius * math.cos(start_angle + 0.8*(end_angle-start_angle)), center[1] + radius * math.sin(start_angle + 0.8*(end_angle-start_angle))), thickness)
- 
-
-
+  
+  
     pygame.display.update()
 
 

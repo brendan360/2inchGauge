@@ -30,18 +30,18 @@ bootState={"bluetooth":[0,"fail",0],
 
 #              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,rangelow,rangehigh,measurment,alertcount
 gaugeItems={
-"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na","20","90","%",0],
-"SPEED":["0D",0,"Speed","0",2,"a","na","na","0","120","Km/h",0],
-"INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100","20","80","°C",0],
-"RPM":["0C",0,"RPM","0",4,"a","na","6000","1000","6000","RPM",0],
-"OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na","10","150","Kpa",0],
-"OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na","100","20","80","°C",0],
-"COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na","10","150","Kpa",0],
-"COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na","100","20","80","°C",0],
-"FUEL_RAIL_PRES":["D1",0,"Fuel Pres","0",5,"d","na","na","10","150","Kpa",0],
-"BOOST":["D1",0,"Boost","0",5,"d","na","na","0","15", "psi",0],
-"WIDEBAND_02":["D1",0,"AFR","0",5,"d","na","na","4","10","A/F",0],
-"BLOCK_TEMP":["D1",0,"Block Temp","0",5,"d","na","na","100","20","80","°C",0]
+"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na",20,90,"%",0],
+"SPEED":["0D",0,"Speed","0",2,"a","na","na",0,120,"Km/h",0],
+"INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100",20,80,"°C",0],
+"RPM":["0C",0,"RPM","0",4,"a","na","6000",1000,6000,"RPM",0],
+"OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na",10,150,"Kpa",0],
+"OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na","100",20,80,"°C",0],
+"COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na",10,150,"Kpa",0],
+"COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na","100",20,80,"°C",0],
+"FUEL_RAIL_PRES":["D1",0,"Fuel Pres","0",5,"d","na","na",10,150,"Kpa",0],
+"BOOST":["D1",0,"Boost","0",5,"d","na","na",0,15,"psi",0],
+"WIDEBAND_02":["D1",0,"AFR","0",5,"d","na","na",4,10,"A/F",0],
+"BLOCK_TEMP":["D1",0,"Block Temp","0",5,"d","na","na","100",20,80,"°C",0]
 
 #"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
 #BAROMETRIC_PRESSURE":["33",0,"Air Pres","0",18,"b","na","na",0],
@@ -310,7 +310,7 @@ def functDISPLAYGAUGE(gaugeItem):
     start_angle = 6 * math.pi / 5  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 5
 
-    input_value =randint(10, 100)
+    input_value = gaugeItems[gaugeItem][3]
 
 # Determine gauge color based on input value
     if input_value < gaugeItems[gaugeItem][8]:
@@ -384,7 +384,9 @@ def funtMENULOOP (item,menu):
     print("")
     
    
-
+def functFILLDATA():
+     for i in gaugeItems.keys():
+        gaugeItems[i][3]=randint(10, 100)
 
 
 
@@ -408,15 +410,11 @@ while True:
       #my_gauge.draw(percent=20)
 
     
-    functDISPLAYGAUGE("SPEED")
-    time.sleep(1)
- 
 
 
-#try:
-#    threading.Thread(target=funtMENULOOP, args=(0,topmenu)).start()
+
+threading.Thread(target=funtDISPALYGAUGE, args=("SPEED")).start()
+threading.Thread(target=funtFILLDATA, args=("SPEED")).start()
 
 
-#except:
-#    functHIGHLIGHTDISPLAY("FAILED", "to START")
-    
+

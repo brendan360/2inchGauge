@@ -313,9 +313,9 @@ def functDISPLAYGAUGE(gaugeItem):
     input_value =randint(10, 100)
 
 # Determine gauge color based on input value
-    if input_value < 30:
+    if input_value < 10:
         gauge_color = blue
-    elif input_value < 80:
+    elif input_value < 50:
         gauge_color = green
     else: 
         gauge_color = red

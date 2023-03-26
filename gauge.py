@@ -28,20 +28,20 @@ bootState={"bluetooth":[0,"fail",0],
            }
 
 
-#              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,alertcount
+#              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,rangelow,rangehigh,measurment,alertcount
 gaugeItems={
-"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na",0],
-"SPEED":["0D",0,"Speed","0",2,"a","na","na",0],
-"INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100",0],
-"RPM":["0C",0,"RPM","0",4,"a","na","6000",0],
-"OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na",0],
-"OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na",0],
-"COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na",0],
-"COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na",0],
-"FUEL_RAIL_PRES":["D1",0,"Fuel Pres","0",5,"d","na","na",0],
-"BOOST":["D1",0,"Boost","0",5,"d","na","na",0],
-"WIDEBAND_02":["D1",0,"AFR","0",5,"d","na","na",0],
-"BLOCK_TEMP":["D1",0,"Block Temp","0",5,"d","na","na",0]
+"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na","20","90","%",0],
+"SPEED":["0D",0,"Speed","0",2,"a","na","na","na","120","Km/h",0],
+"INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100","20","80","°C",0],
+"RPM":["0C",0,"RPM","0",4,"a","na","6000","1000","6000","RPM",0],
+"OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na","10","150","Kpa",0],
+"OIL_TEMP":["D1",0,"Oil Temp","0",5,"d","na","na","100","20","80","°C",0],
+"COOLANT_PRESSURE":["D1",0,"Water Pres","0",5,"d","na","na","10","150","Kpa",0],
+"COOLANT_TEMP":["D1",0,"Water Temp","0",5,"d","na","na","100","20","80","°C",0],
+"FUEL_RAIL_PRES":["D1",0,"Fuel Pres","0",5,"d","na","na","10","150","Kpa",0],
+"BOOST":["D1",0,"Boost","0",5,"d","na","na","0","15", "psi",0],
+"WIDEBAND_02":["D1",0,"AFR","0",5,"d","na","na","4","10","A/F",0],
+"BLOCK_TEMP":["D1",0,"Block Temp","0",5,"d","na","na","100","20","80","°C",0]
 
 #"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
 #BAROMETRIC_PRESSURE":["33",0,"Air Pres","0",18,"b","na","na",0],
@@ -301,7 +301,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     pygame.display.update()
     time.sleep(5)
     
-def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
+def functDISPLAYGAUGE(gaugeItem):
     display_surface.fill(black)
 
     center = (X // 2, Y // 2)
@@ -310,7 +310,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
     start_angle = 6 * math.pi / 5  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 5
 
-    input_value = percentage
+    input_value =randint(10, 100)
 
 # Determine gauge color based on input value
     if input_value < 30:
@@ -333,7 +333,7 @@ def functDISPLAYGAUGE(pid,low,high,warning,postfix,percentage):
 # Draw the center circle
     pygame.draw.circle(display_surface, black, center, thickness//2)
     
-    text = font1.render(pid, True, white, black)
+    text = font1.render(gaugeItems[gaugeItem][2], True, white, black)
     textRect = text.get_rect()
     textRect.center = (X // 2 -180 , Y // 2)
     display_surface.blit(text, textRect)
@@ -405,13 +405,13 @@ while True:
         # FOR SHOWING CHANGE IN GAUGE
      # rangauge = ser.readline()
      # percentage = int(rangauge)
-    percentage=randint(10, 100)
+ #   percentage=randint(10, 100)
            # percentage = 0
          #       screen.fill(bg_c)
       #my_gauge.draw(percent=20)
 
     
-    functDISPLAYGAUGE("Boost",10,100,90,"psi",percentage)
+    functDISPLAYGAUGE("SPEED")
     time.sleep(1)
  
 

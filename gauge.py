@@ -388,7 +388,7 @@ def functFILLDATA():
 
      for i in gaugeItems.keys():
         gaugeItems[i][3]=randint(10, 100)
-        print(gaugeItems.keys()
+        print(gaugeItems[i][2])
         print(gaugeItems[i][3])
 
 

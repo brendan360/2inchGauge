@@ -30,8 +30,8 @@ bootState={"bluetooth":[0,"fail",0],
 
 #              obd name    PID,enabled or false, Friendly Name,value,pid squence, pid array,alertlow,alerthigh,rangelow,rangehigh,measurment,alertcount
 gaugeItems={
-"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na","20","90","%",0],
-"SPEED":["0D",0,"Speed","0",2,"a","na","na","na","120","Km/h",0],
+"FUEL_LEVEL":["2F",0,"Fuel %","0",1,"b","na","na",20,90,"%",0],
+"SPEED":["0D",0,"Speed","0",2,"a","na","na",0,120,"Km/h",0],
 "INTAKE_TEMP":["0F",0,"Intake C","0",3,"a","na","100","20","80","°C",0],
 "RPM":["0C",0,"RPM","0",4,"a","na","6000","1000","6000","RPM",0],
 "OIL_PRESSURE":["D1",0,"Oil Pres","0",5,"d","na","na","10","150","Kpa",0],

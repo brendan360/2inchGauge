@@ -413,8 +413,8 @@ while True:
 
 
 
-    threading.Thread(target=funtDISPALYGAUGE, args=("SPEED")).start()
-    threading.Thread(target=funtFILLDATA, args=("SPEED")).start()
+    threading.Thread(target=functDISPALYGAUGE, args=("SPEED")).start()
+    threading.Thread(target=functFILLDATA, args=()).start()
 
 
 

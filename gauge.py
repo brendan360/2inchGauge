@@ -321,7 +321,7 @@ def functDISPLAYGAUGE(gaugeItem):
         gauge_color = red
 
 # Calculate the angle range based on input value
-    angle_range = (end_angle - start_angle) * input_value / 100
+    angle_range = (end_angle - start_angle) * input_value / 100 
 
 # Draw the gauge background
     pygame.draw.arc(display_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)

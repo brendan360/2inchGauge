@@ -303,7 +303,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     
 def functDISPLAYGAUGE(gaugeItem):
     display_surface.fill(black)
-    print(gaugeItem)
+    print(gaugeItem[2])
 
     center = (X // 2, Y // 2)
     radius = 220

@@ -312,8 +312,8 @@ def functDISPLAYGAUGE(gaugeItem):
     start_angle = 6 * math.pi / 5  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 5
 
-    input_value = gaugeItems[gaugeItem][3]
-
+  #  input_value = gaugeItems[gaugeItem][3]
+    input_value=20
 # Determine gauge color based on input value
     if int(input_value) < int(gaugeItems[gaugeItem][8]):
         gauge_color = blue
@@ -387,7 +387,6 @@ def funtMENULOOP (item,menu):
 def functFILLDATA():
 
      for i in gaugeItems.keys():
-        time.sleep(1)
         gaugeItems[i][3]=randint(10, 100)
 
 
@@ -414,7 +413,7 @@ while True:
 
     
 
-    threading.Thread(target=functFILLDATA).start()
+ #   threading.Thread(target=functFILLDATA).start()
     
     threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
 

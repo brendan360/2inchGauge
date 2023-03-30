@@ -312,8 +312,8 @@ def functDISPLAYGAUGE(gaugeItem):
     start_angle = 6 * math.pi / 5  # 135 degrees
     end_angle = start_angle + 8 * math.pi / 5
 
-  #  input_value = gaugeItems[gaugeItem][3]
-    input_value=20
+    input_value = gaugeItems[gaugeItem][3]
+   # input_value=20
 # Determine gauge color based on input value
     if int(input_value) < int(gaugeItems[gaugeItem][8]):
         gauge_color = blue
@@ -347,9 +347,7 @@ def functDISPLAYGAUGE(gaugeItem):
     textRect = text.get_rect()
     textRect.center = (X // 2, Y // 2)
     display_surface.blit(text, textRect) 
-  
     pygame.display.update()
-
     pygame.display.flip()
 
  
@@ -413,8 +411,9 @@ while True:
 
     
 
- #   threading.Thread(target=functFILLDATA).start()
-    
+    threading.Thread(target=functFILLDATA).start()
+    pygame.display.update()
+    pygame.display.flip()  
     threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
 
 

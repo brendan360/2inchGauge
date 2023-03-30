@@ -302,7 +302,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     time.sleep(5)
     
 def functDISPLAYGAUGE(gaugeItem):
-    while true:
+    while True:
         display_surface.fill(black)
         print(gaugeItems[gaugeItem][2])
         print(gaugeItems[gaugeItem][3])

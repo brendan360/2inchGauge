@@ -349,7 +349,7 @@ def functDISPLAYGAUGE(gaugeItem):
         textRect.center = (X // 2, Y // 2)
         display_surface.blit(text, textRect) 
         pygame.display.update()
-        pygame.display.flip()
+    #    pygame.display.flip()
 
     
     
@@ -410,7 +410,6 @@ def functFILLDATA():
       #my_gauge.draw(percent=20)
     
     
-display_surface.fill(black)
 threading.Thread(target=functFILLDATA).start()
  
 threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()

@@ -302,53 +302,54 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     time.sleep(5)
     
 def functDISPLAYGAUGE(gaugeItem):
-    display_surface.fill(black)
-    print(gaugeItems[gaugeItem][2])
-    print(gaugeItems[gaugeItem][3])
+    while true:
+        display_surface.fill(black)
+        print(gaugeItems[gaugeItem][2])
+        print(gaugeItems[gaugeItem][3])
 
-    center = (X // 2, Y // 2)
-    radius = 220
-    thickness =60
-    start_angle = 6 * math.pi / 5  # 135 degrees
-    end_angle = start_angle + 8 * math.pi / 5
+        center = (X // 2, Y // 2)
+        radius = 220
+        thickness =60
+        start_angle = 6 * math.pi / 5  # 135 degrees
+        end_angle = start_angle + 8 * math.pi / 5
 
-    input_value = gaugeItems[gaugeItem][3]
+        input_value = gaugeItems[gaugeItem][3]
    # input_value=20
 # Determine gauge color based on input value
-    if int(input_value) < int(gaugeItems[gaugeItem][8]):
-        gauge_color = blue
-    elif int(input_value) < int(gaugeItems[gaugeItem][9]):
-        gauge_color = green
-    else: 
-        gauge_color = red
+        if int(input_value) < int(gaugeItems[gaugeItem][8]):
+            gauge_color = blue
+        elif int(input_value) < int(gaugeItems[gaugeItem][9]):
+            gauge_color = green
+        else: 
+            gauge_color = red
 
 # Calculate the angle range based on input value
-    angle_range = (end_angle - start_angle) * input_value / 100 
+        angle_range = (end_angle - start_angle) * input_value / 100 
 
 # Draw the gauge background
-    pygame.draw.arc(display_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
+        pygame.draw.arc(display_surface, black, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, end_angle, thickness)
 
 # Draw the gauge fill
-    pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
-    thickness = 40  
+        pygame.draw.arc(display_surface, gauge_color, (center[0]-radius, center[1]-radius, radius*2, radius*2), start_angle, start_angle + angle_range, thickness)
+        thickness = 40  
  
 # Draw the center circle
-    pygame.draw.circle(display_surface, black, center, thickness//2)
+        pygame.draw.circle(display_surface, black, center, thickness//2)
     
-    text = font1.render(gaugeItems[gaugeItem][2], True, white, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2 -180 , Y // 2)
-    display_surface.blit(text, textRect)
-    text = font3.render(gaugeItems[gaugeItem][10], True, white, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2 +100)
-    display_surface.blit(text, textRect)
-    text = font7.render(str(input_value), True, white, black)
-    textRect = text.get_rect()
-    textRect.center = (X // 2, Y // 2)
-    display_surface.blit(text, textRect) 
-    pygame.display.update()
-    pygame.display.flip()
+        text = font1.render(gaugeItems[gaugeItem][2], True, white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2 -180 , Y // 2)
+        display_surface.blit(text, textRect)
+        text = font3.render(gaugeItems[gaugeItem][10], True, white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2 +100)
+        display_surface.blit(text, textRect)
+        text = font7.render(str(input_value), True, white, black)
+        textRect = text.get_rect()
+        textRect.center = (X // 2, Y // 2)
+        display_surface.blit(text, textRect) 
+        pygame.display.update()
+        pygame.display.flip()
 
  
     
@@ -412,8 +413,7 @@ while True:
     
 
     threading.Thread(target=functFILLDATA).start()
-    pygame.display.update()
-    pygame.display.flip()  
+ 
     threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
 
 

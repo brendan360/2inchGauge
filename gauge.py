@@ -301,7 +301,8 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     pygame.display.update()
     time.sleep(5)
     
-def functDISPLAYGAUGE(gaugeItem):
+def functDISPLAYGAUGE():
+    gaugeItem = "SPEED"
     while True:
         time.sleep(.2)
         print(gaugeItems[gaugeItem][2])
@@ -383,9 +384,10 @@ def funtMENULOOP (item,menu):
     
    
 def functFILLDATA():
-
-     for i in gaugeItems.keys():
-        gaugeItems[i][3]=randint(10, 100)
+    while True:
+        time.sleep(1)
+        for i in gaugeItems.keys():
+            gaugeItems[i][3]=randint(10, 100)
 
 
 
@@ -411,8 +413,9 @@ def functFILLDATA():
     
     
 threading.Thread(target=functFILLDATA).start()
+threading.Thread(target=functDISPLAYGAUGE).start()
  
-threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
+#threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
 
 
 

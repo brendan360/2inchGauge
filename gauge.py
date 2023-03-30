@@ -411,9 +411,10 @@ def functFILLDATA():
          #       screen.fill(bg_c)
       #my_gauge.draw(percent=20)
     
-    
-threading.Thread(target=functFILLDATA).start()
-threading.Thread(target=functDISPLAYGAUGE).start()
+while True:
+    functDISPLAYGAUGE()
+#threading.Thread(target=functFILLDATA).start()
+#threading.Thread(target=functDISPLAYGAUGE).start()
  
 #threading.Thread(target=functDISPLAYGAUGE, args=("SPEED",)).start()
 

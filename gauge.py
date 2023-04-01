@@ -307,7 +307,6 @@ def functHIGHLIGHTDISPLAY(text1,text2):
 def functDISPLAYGAUGE():
     global gaugeItem
     threading.Thread(target=functFILLDATA).start()
-    gaugeItem = "SPEED"
     while True:
         display_surface.fill(black)
         time.sleep(.05)

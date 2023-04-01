@@ -309,7 +309,7 @@ def functDISPLAYGAUGE():
     gaugeItem = "SPEED"
     while True:
         display_surface.fill(black)
-        time.sleep(.2)
+        time.sleep(.05)
         print(gaugeItems[gaugeItem][2])
         print(gaugeItems[gaugeItem][3])
 

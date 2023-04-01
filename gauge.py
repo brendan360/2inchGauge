@@ -60,7 +60,7 @@ gaugeItems={
  
  
 
-gauge_keys=gaugeItems.keys()
+gauge_keys=list(gaugeItems.keys())
  
  
 ###

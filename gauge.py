@@ -21,7 +21,7 @@ from random import randint
 #
 ###
 global counter
-counter=x
+counter=0
 
 address="/home/pi/2inchGauge/"
 

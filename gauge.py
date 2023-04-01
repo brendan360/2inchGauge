@@ -413,7 +413,7 @@ def functFILLDATA():
     
     
 while True:
-    print (gauge_keys)
+    print (gauge_keys[3])
    # functDISPLAYGAUGE()
 #threading.Thread(target=functFILLDATA).start()
 

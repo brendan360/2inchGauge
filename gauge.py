@@ -20,7 +20,7 @@ from random import randint
 #GLOBAL CONFIGS
 #
 ###
-counter=0
+global counter=0
 
 address="/home/pi/2inchGauge/"
 
@@ -303,6 +303,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     time.sleep(5)
     
 def functDISPLAYGAUGE():
+    display_surface.fill(black)
     threading.Thread(target=functFILLDATA).start()
     gaugeItem = "SPEED"
     while True:

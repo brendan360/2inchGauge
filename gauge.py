@@ -20,7 +20,7 @@ from random import randint
 #GLOBAL CONFIGS
 #
 ###
-
+counter=0
 
 address="/home/pi/2inchGauge/"
 
@@ -363,7 +363,7 @@ def functDISPLAYGAUGE():
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
-    counter=0
+
     counter+=1
     print(counter)
 

@@ -23,6 +23,7 @@ from random import randint
 
 counter=0
 menucount=0
+gaugeItem
 address="/home/pi/2inchGauge/"
 
 bootState={"bluetooth":[0,"fail",0],
@@ -305,7 +306,7 @@ def functHIGHLIGHTDISPLAY(text1,text2):
     time.sleep(5)
     
 def functDISPLAYGAUGE():
-
+    global gaugeItem
     threading.Thread(target=functFILLDATA).start()
     gaugeItem = "SPEED"
     while True:
@@ -369,12 +370,17 @@ def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
     global counter
     global menucount
+    global gaugeItem
     counter =  counter +1
+    time.sleep(.5)
     if counter >0:
         counter = 0
         menucount +=1
         gaugeItem = gauge_keys[menucount]
         print(gaugeItem)
+        if menucount<len(gauge_keys):
+            menucount = 0
+
 
 
 
@@ -413,8 +419,7 @@ def functFILLDATA():
     
     
 while True:
-    print (gauge_keys[3])
-   # functDISPLAYGAUGE()
+    functDISPLAYGAUGE()
 #threading.Thread(target=functFILLDATA).start()
 
  

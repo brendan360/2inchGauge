@@ -365,8 +365,8 @@ def functDISPLAYGAUGE():
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
-
-    counter+=1
+    global counter
+    counter =  counter +1
     print(counter)
 
 

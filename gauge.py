@@ -20,7 +20,7 @@ from random import randint
 #GLOBAL CONFIGS
 #
 ###
-global counter
+
 counter=0
 
 address="/home/pi/2inchGauge/"
@@ -367,7 +367,9 @@ def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
     global counter
     counter =  counter +1
+    print("--------")
     print(counter)
+    print("--------")
 
 
 

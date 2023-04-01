@@ -20,10 +20,9 @@ from random import randint
 #GLOBAL CONFIGS
 #
 ###
-
+gaugeItem="SPEED"
 counter=0
 menucount=0
-gaugeItem
 address="/home/pi/2inchGauge/"
 
 bootState={"bluetooth":[0,"fail",0],

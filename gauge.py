@@ -20,7 +20,8 @@ from random import randint
 #GLOBAL CONFIGS
 #
 ###
-global counter=0
+global counter
+counter=x
 
 address="/home/pi/2inchGauge/"
 

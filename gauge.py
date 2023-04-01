@@ -354,7 +354,7 @@ def functDISPLAYGAUGE():
         textRect.center = (X // 2, Y // 2)
         display_surface.blit(text, textRect) 
         pygame.display.update()
-    #    pygame.display.flip()
+        pygame.display.flip()
 
     
     

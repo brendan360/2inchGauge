@@ -21,7 +21,7 @@ from random import randint
 #
 ###
 
-int counter=0 
+
 address="/home/pi/2inchGauge/"
 
 bootState={"bluetooth":[0,"fail",0],
@@ -363,6 +363,7 @@ def functDISPLAYGAUGE():
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
+    
     counter+=1
     print(counter)
 

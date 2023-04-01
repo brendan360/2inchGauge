@@ -21,6 +21,7 @@ from random import randint
 #
 ###
 
+int counter=0 
 address="/home/pi/2inchGauge/"
 
 bootState={"bluetooth":[0,"fail",0],
@@ -357,25 +358,13 @@ def functDISPLAYGAUGE():
     
 
 
-### Helper functions
-def functREINITIALISE():
-    firstBoot()
-  
-def functGETIPADDRESS():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        s.connect(('10.255.255.255', 1))
-        IP = s.getsockname()[0]
-    except Exception:
-        IP = '127.0.0.1'
-    finally:
-        s.close()
-    return IP
 
 
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
     print(touch_id, x, y, state)
+    counter+=1
+    print(counter)
 
 
 

@@ -310,8 +310,8 @@ def functDISPLAYGAUGE():
     while True:
         display_surface.fill(black)
         time.sleep(.05)
-        print(gaugeItems[gaugeItem][2])
-        print(gaugeItems[gaugeItem][3])
+ #       print(gaugeItems[gaugeItem][2])
+ #      print(gaugeItems[gaugeItem][3])
 
         center = (X // 2, Y // 2)
         radius = 220
@@ -376,6 +376,7 @@ def handle_touch(touch_id, x, y, state):
         menucount +=1
         gaugeItem = gauge_keys[menucount]
         print('-----------------')
+        print(len(gauge_keys))
         print(menucount)
         print(gaugeItem)
         print('-----------------')

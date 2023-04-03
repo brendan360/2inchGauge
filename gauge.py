@@ -374,13 +374,14 @@ def handle_touch(touch_id, x, y, state):
     if counter > 0:
         
         menucount = menucount + 1
+        if menucount>len(gauge_keys)-1:
+            menucount = 0
         gaugeItem = gauge_keys[menucount]
         print('-----------------')
         print(menucount)
         print(gaugeItem)
         print('-----------------')
-        if menucount>len(gauge_keys)-1:
-            menucount = 0
+
         counter = 0
 
 

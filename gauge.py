@@ -365,13 +365,13 @@ def functDISPLAYGAUGE():
 
 @touch.on_touch
 def handle_touch(touch_id, x, y, state):
-    print(touch_id, x, y, state)
     global counter
     global menucount
     global gaugeItem
     counter =  counter + 1
     time.sleep(.5)
-    if counter >1 :
+    print(counter)
+    if counter >2 :
         counter = 0
         menucount +=1
         gaugeItem = gauge_keys[menucount]

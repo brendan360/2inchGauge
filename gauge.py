@@ -369,9 +369,9 @@ def handle_touch(touch_id, x, y, state):
     global counter
     global menucount
     global gaugeItem
-    counter =  counter +1
+    counter =  counter + 1
     time.sleep(.5)
-    if counter >0:
+    if counter >1 :
         counter = 0
         menucount +=1
         gaugeItem = gauge_keys[menucount]

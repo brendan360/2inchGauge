@@ -43,8 +43,8 @@ gaugeItems={
 "FUEL_RAIL_PRES":["D1",0,"Fuel Pres",0,5,"d","na","na",10,150,"Kpa",0],
 "BOOST":["D1",0,"Boost",0,5,"d","na","na",0,15,"psi",0],
 "WIDEBAND_02":["D1",0,"AFR",0,5,"d","na","na",4,10,"A/F",0],
-"WIDEBAND_02LAMBA":["D1",0,"AFR",0,5,"d","na","na",4,10,"LAMBA",0],
-"BLOCK_TEMP":["D1",0,"Block Temp",0,5,"d","na","na","100",20,80,"°C",0]
+"WIDEBAND_02LAMBA":["D1",0,"AFR",0,5,"d","na","na",4,10,"lamba",0],
+#"BLOCK_TEMP":["D1",0,"Block Temp",0,5,"d","na","na","100",20,80,"°C",0]
 
 #"TIMING_ADVANCE":["0E",0,"Timing","0",13,"a","na","100",0],
 #BAROMETRIC_PRESSURE":["33",0,"Air Pres","0",18,"b","na","na",0],

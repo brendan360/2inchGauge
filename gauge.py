@@ -391,7 +391,7 @@ def functFILLDATA():
     while True:
         time.sleep(1)
         for i in gaugeItems.keys():
-            gaugeItems[i][3]=randint(10, 100)
+            gaugeItems[i][3]=randint(10, 120)
 
 
 

@@ -312,8 +312,6 @@ def functDISPLAYGAUGE():
     while True:
         display_surface.fill(black)
         time.sleep(.5)
- #       print(gaugeItems[gaugeItem][2])
- #      print(gaugeItems[gaugeItem][3])
 
         center = (X // 2, Y // 2)
         radius = 220
@@ -322,7 +320,7 @@ def functDISPLAYGAUGE():
         end_angle = start_angle + 8 * math.pi / 5
 
         input_value = gaugeItems[gaugeItem][3]
-       # input_value=20
+
     # Determine gauge color based on input value
         if int(input_value) < int(gaugeItems[gaugeItem][8]):
             gauge_color = blue
